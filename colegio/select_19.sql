@@ -1,2 +1,5 @@
-select m.mensalidade * 10 as vlr_bruto, m.desconto + m.desconto as vlr_descontos, (m.mensalidade * 10)-(m.desconto + m.desconto) as vlr_liquido
-from matriculas as m
+SELECT SUM(`m`.`mensalidade`) AS 'Mensalidades - Total',
+       SUM(`m`.`desconto`) AS 'Descontos - Total',
+       SUM(`m`.`mensalidade`) - SUM(`m`.`desconto`) AS 'Valor Líquido'
+	FROM `matriculas` AS `m`;
+ 
